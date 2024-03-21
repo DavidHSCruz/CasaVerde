@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import emailjs from '@emailjs/browser'
+import arvoreInicio from '../../../public/img/arvoreInicio.png'
 
 const AssinaturaNewsletterContainer = styled.section`
 `
@@ -129,7 +130,7 @@ function AssinaturaNewsletter() {
       <SvgYellowComponent viewBox="0 0 955 637" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M284.914 -328.488C378.816 -388.839 500.328 -305.147 606.445 -270.44C695.841 -241.201 781.671 -207.371 850.687 -143.445C922.505 -76.9232 976.461 4.47409 1004.51 98.2672C1036.23 204.339 1064.83 320.816 1019.74 421.899C973.65 525.226 876.3 611.001 765.538 633.99C662.06 655.466 576.585 552.577 472.273 535.525C367.351 518.373 251.989 590.47 161.155 535.189C65.3803 476.901 -6.1279 360.625 1.04142 248.736C8.06001 139.198 147.437 91.9167 195.868 -6.56121C246.231 -108.969 188.927 -266.797 284.914 -328.488Z" fill="#FFCB47"/>
       </SvgYellowComponent>
-      <ImgPlanta src="https://s3-alpha-sig.figma.com/img/1ddc/a8c9/c84ea93fe10aee9907b62f951f3822b6?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kY58pEj3Fy3Yv9xpGhP-9iY5AVzG6SIBExrD8c4SZN7kj9RE3hyoustTY2UixD01uRUmS8onlH-zmgPAGiDawEq~9rnrUghqdcT~VZihLCkiNN7fQRM~DwInpKt3ieQ2BmFR6XC05LOXTtVvE8HcvqV1Ajx25fvHJFGExghXSf~7vXJkZU1eLOpaAeSeifNKXAJxCOE9oC2qxmOXj~DMulA2OCisO9i~7blywdbk6J4nGBU26DV5uPYBCRGlJyIkvibxM1XAPmy-VAHCErrTnvw2zG1kzQ-RgOqitWiSCyLMLJqTPZ3udlEqoQDKw3nxyJ4IkV9igNlHF43tlCqkbQ__" alt="" />
+      <ImgPlanta src={arvoreInicio} alt="Imagem da árvore" />
       <NewsletterComponent>
         <Paragrafo>Sua casa com as</Paragrafo>
         <Titulo>melhores plantas</Titulo>
