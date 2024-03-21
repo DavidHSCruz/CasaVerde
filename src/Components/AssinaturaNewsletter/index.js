@@ -1,4 +1,6 @@
+import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
+import emailjs from '@emailjs/browser'
 
 const AssinaturaNewsletterContainer = styled.section`
 `
@@ -38,6 +40,11 @@ const NewsletterComponent = styled.div`
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
     &>svg{
       margin: 15px;
+    }
+    &>form{
+      display: flex;
+      width: 100%;
+      height: 100%;
     }
   }
 `
@@ -80,8 +87,43 @@ const Botao = styled.button`
   color: #ffffff;
   font-family: Montserrat;
   box-shadow: 10px 10px 30px rgba(255, 203, 71, 0.3);
+  opacity: 1;
+  transition: 500ms;
+  &:disabled{
+    background-color: #202020;
+    cursor: default;
+    opacity: .5;
+  }
 `
 function AssinaturaNewsletter() {
+  const [email, setEmail] = useState('')
+  const botao = useRef(null)
+  const form = useRef(null)
+  const input = useRef(null)
+
+  useEffect(() => validarEmail(), [email])
+
+  function validarEmail() {
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) botao.current.disabled = false
+    else botao.current.disabled = true
+  }
+
+  function EnviarEmail(e) {
+    e.preventDefault()
+
+    emailjs.sendForm('gmailMessage', 'templateMessage', form.current, {
+        publicKey: 'pRiHF5Ky4BQsmE5Ck',
+      })
+      .then(
+        () => {
+          alert(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}.`)
+        },
+        (error) => {
+          alert('FAILED...', error.text);
+        })
+    input.current.value = ''
+  }
+
   return (
     <AssinaturaNewsletterContainer>
       <SvgYellowComponent viewBox="0 0 955 637" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,17 +133,19 @@ function AssinaturaNewsletter() {
       <NewsletterComponent>
         <Paragrafo>Sua casa com as</Paragrafo>
         <Titulo>melhores plantas</Titulo>
-        <ParagrafoMenor>Encontre aqui uma vasta seleção de plantas para decorar a sua casa e torná-lo uma pessoa mais feliz no seu dia a dia. Entre com seu e-mail e assine nossa newsletter para saber das novidades da marca.</ParagrafoMenor>
-        <label>
-          <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.3">
-              <path d="M3.58826 1H20.8432C22.0294 1 23 1.56008 23 2.24461V9.7123C23 10.3968 22.0294 10.9569 20.8432 10.9569H3.58826C2.40198 10.9569 1.4314 10.3968 1.4314 9.7123V2.24461C1.4314 1.56008 2.40198 1 3.58826 1Z" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M23 2.24475L12.2157 6.60091L1.4314 2.24475" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-          </svg>
-          <Input type="text" placeholder="Insira seu e-mail" />
-          <Botao>Assinar newsletter</Botao>
-        </label>  
+        <ParagrafoMenor>Encontre aqui uma vasta seleção de plantas para decorar a sua casa e torná-lo uma pessoa mais feliz no seu dia a dia. Entre com seu e-mail e assine nossa newsletter para saber das novidades da marca.</ParagrafoMenor>   
+          <label>
+            <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.3">
+                <path d="M3.58826 1H20.8432C22.0294 1 23 1.56008 23 2.24461V9.7123C23 10.3968 22.0294 10.9569 20.8432 10.9569H3.58826C2.40198 10.9569 1.4314 10.3968 1.4314 9.7123V2.24461C1.4314 1.56008 2.40198 1 3.58826 1Z" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 2.24475L12.2157 6.60091L1.4314 2.24475" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <form ref={form} onSubmit={e => EnviarEmail(e)}>
+              <Input ref={input} type="email" placeholder="Insira seu e-mail" onInput={ evento => setEmail(evento.target.value) } minLength='9' name="email"/>
+              <Botao ref={botao}>Assinar newsletter</Botao>
+            </form>
+          </label>
       </NewsletterComponent>
     </AssinaturaNewsletterContainer>
   )
