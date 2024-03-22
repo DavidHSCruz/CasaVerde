@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import emailjs from '@emailjs/browser'
-import arvoreInicio from '../../../public/img/arvoreInicio.png'
+import arvoreInicio from '../../img/arvoreInicio.png'
 
 const AssinaturaNewsletterContainer = styled.section`
 `
