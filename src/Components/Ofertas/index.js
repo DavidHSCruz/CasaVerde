@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import Oferta from "../Oferta"
+import { useEffect, useState } from "react"
+import { getPlantas } from "../../Servicos/plantas"
 
 
 const OfertasContainer = styled.section`
@@ -35,7 +37,7 @@ function Ofertas() {
             height: '337px',
             marginRight: '150px',
             nome: 'Ajuga reptans',
-            valor: 'R$ 20,00'
+            valor: 20.00
         },
         {
             img: 'https://s3-alpha-sig.figma.com/img/5047/6d4b/6396a5ab4e182d3442bf0227275d6b1b?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jSpa1YKaPyi7a64K0hYTd8SftLqnAo9d850ldGILVCUPhBrMWjefDg2J-LUO8leWNOgH6KVywZlbMvKBWtFX9tx~KVl02wgLUf~Y4sEblE8BX7oXiEigkq2bm4ng2RR4OmTjS8kF9~DyMQNLrG6QMm-du1-8QL0JbWOqcUmSYCSHA41B1LShWf5I-u4q2uyW2CKMkSjSpFAPSkWcpEE-UrN4Kl-qp1Qsrl8gPkB~Nt5~AndEiHXGP6ngKqpzUfVUkcYiqGzGehdshejf-Bb-ELVjPTm3yolHnH89QOJHus1kUcYbwtlxbRCys~fsyyfG4gHdsXAHGQAHHfB9T9aNKQ__',
@@ -43,7 +45,7 @@ function Ofertas() {
             height: '220px',
             marginRight: '100px',
             nome: 'Cordyline fruticosa',
-            valor: 'R$ 20,00'
+            valor: 20.00
         },
         {
             img: 'https://s3-alpha-sig.figma.com/img/d60d/4c56/e42bf8a367f6f52d79e2fcce6435eca1?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=idgW3aivijZkqcBJQwzwqoA8keQr9Pa-kDFE0FsYxZPx-TpTqPhehqkMqvZeRyFUU3IDW7Vtn0037IkJ~hBhpWQQ6TuQiggJJovF1ruK~NjGoi2wtjkZLZw4-g33OQgwZaTF-4j~HjfNXKcy~mDSCKMLbLdVpFx0M-X54RKzs5XH2VeSZes1jN9q9A4EjSrtyCZ1Lzn6o~vwApHB5H-Os8bCM08jzoJaScJankRv2cuWCTC~CZTdt5DY6bbUv8ducPT4BJf5sQnWj9qomPxzJ79HLx0PihDJNeLPsBre66j00NLa2ojIsMApYxLevj8KUY2OIHkuDdcLUeY9coGWAA__',
@@ -51,7 +53,7 @@ function Ofertas() {
             height: '414px',
             marginRight: '130px',
             nome: 'Crassula ovata',
-            valor: 'R$ 20,00'
+            valor: 20.00
         },
         {
             img: 'https://s3-alpha-sig.figma.com/img/089e/ea7c/c8dc02a30df1fdefb3afc9a681dd8e74?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TfuxhpAwj1Ra-PbYIRkHCVJKr~H4myp0ocfh4ayaX-EOJIeU80iDSnzlYcFesEB2vBJYawi33gPfRaMYIemam4xVUNjb4O6Cy5knB8k2wKO2Ir10KSjlCxTvLNTkwh0TQc~ivvQVR6cwyMljsPK6-IhMShqFeojd3LuXrU~qr0jbNsMt-pkXoHLWXfVizEtR-n3jDeaQntaheVkL-Senj1ZpBFbRmTXk0SoPGexPtG~HWnh0s2V0nMjilHN075blhzpSdDWNbskF7ZcexoOAmHFjRzpJnd6m5XpLAs4aSjS4C4WJ-8waqLwJf8mE02~1lT2VkCYiny2-vAZ2uIQRsg__',
@@ -60,7 +62,7 @@ function Ofertas() {
             marginRight: '150px',
             rotate: '38.4deg',
             nome: 'Cyperus rotundus',
-            valor: 'R$ 20,00'
+            valor: 20.00
         },
         {
             img: 'https://s3-alpha-sig.figma.com/img/1e97/e1d6/7fdf16cf2010166a8f037923cc7d09fa?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jUo9oPsnN~bfbsw4BryZyAQJYtfY78hH59gMlCkt9aMhtG0NOwvgDD8srCIkA9n9R9PECf6lggUK1k4oHdkE~SJj85KO4uAXH1bKC~7ZesRjpwoTbPrcFrScPUAZyXVCAV6vWSRO7Cq1JWSgVwVIl2Nku06diCab-wZy5~E33mY5wEWd8TIRPPvHzszfLQ3He1QLAzu726p5j5CgxsXDb2TZqbQZkGmtQjX0f~L1Gns95UTfpcBRgrqLqbCzXzrebwd9iPHPHztb5Fjc7ioqd5HU1ZOz7J6UxHc8SjCkrjkKxpRtTa4TK1mh6UD3hx3NXl35UmeuGpuWDrcKTuAt2A__',
@@ -68,7 +70,7 @@ function Ofertas() {
             height: '267px',
             marginRight: '150px',
             nome: 'Delairea odorata',
-            valor: 'R$ 20,00'
+            valor: 20.00
         },
         {
             img: 'https://s3-alpha-sig.figma.com/img/2b15/5241/e52da1da0b1b9954518b5a7c668c7c39?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=odBo4Dedt9~CvDt7o9P~nuaPeGS91Db--RoWUoD2Xh-Le0jZGJHhCnGRjuihxPocvDAvDe7USHl~MJXwMg7HNNIZQovsu4qt5ke9hnBsbQhaFK6y82s3HtmHBLZH~AWULXRod7kaNkYHI4pEekZ5hWW6jgn5ewfgdMvjfd0sM5uB1Y06A4TLs1GFaGrBv14Am5g7pmbE9JVGL375e32UC15DsmSSKwT~qmiKS61q2ItZQRV0wZ4EwCTKEpjvgthlTYNZyMvpglOGfd-WYk3xHLHRj-kKjaIuBjHw9grOQTBnH0WDl9P4i4Z2AI31lZPqzHw~Y~-sA2Pb4OnstcC6eg__',
@@ -77,9 +79,19 @@ function Ofertas() {
             marginRight: '210px',
             rotate: '38.96deg',
             nome: 'Datura metel',
-            valor: 'R$ 20,00'
+            valor: 20.00
         }
     ]
+    const [plantasPesquisadas, setPlantasPesquisadas] = useState([])
+
+    async function fetchPlantas() {
+        const plantasAPI = await getPlantas()
+        setPlantasPesquisadas(plantasAPI)
+    }
+    
+    useEffect(() => {
+        fetchPlantas()
+    }, [])
 
     return(
         <OfertasContainer>
@@ -87,17 +99,24 @@ function Ofertas() {
             <h1>ofertas</h1>
             <div>
                 {
-                    ofertas.map(oferta => (
+                    plantasPesquisadas.map(planta => (
                         <Oferta 
-                            nome={oferta.nome} 
-                            valor={oferta.valor} 
-                            image={oferta.img} 
-                            width={oferta.width} 
-                            heigth={oferta.height}
-                            rotate={oferta.rotate}
-                            marginRight={oferta.marginRight}
+                            nome={planta.name}
+                            valor={planta.preco}
+                            image={planta.img}
                         />
                     ))
+                    // ofertas.map(oferta => (
+                    //     <Oferta 
+                    //         nome={oferta.nome} 
+                    //         valor={oferta.valor} 
+                    //         image={oferta.img} 
+                    //         width={oferta.width} 
+                    //         heigth={oferta.height}
+                    //         rotate={oferta.rotate}
+                    //         marginRight={oferta.marginRight}
+                    //     />
+                    // ))
                 }
             </div>
             

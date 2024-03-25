@@ -118,11 +118,12 @@ function AssinaturaNewsletter() {
       .then(
         () => {
           alert(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}.`)
+          input.current.value = ''
         },
         (error) => {
-          alert('FAILED...', error.text);
+          alert('FAILED...', error.text)
+          input.current.value = ''
         })
-    input.current.value = ''
   }
 
   return (

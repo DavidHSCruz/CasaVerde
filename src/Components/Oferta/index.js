@@ -39,10 +39,16 @@ const OfertaConponent = styled.div`
 function Oferta({ nome, valor, image, width, heigth, rotate, marginRight }) {
     return(
         <OfertaConponent>
-            <img src={image} alt={nome} width={width} height={heigth} style={{rotate: rotate, marginRight: marginRight}}/>
+            <img 
+                src={image} 
+                alt={nome} 
+                width={width} 
+                height={heigth} 
+                style={{rotate: rotate, marginRight: marginRight}}
+            />
             <div>
                 <h2>{nome}</h2>
-                <p>{valor}</p>
+                <p>R${valor}</p>
                 <p>Comprar</p>
             </div>
         </OfertaConponent>
