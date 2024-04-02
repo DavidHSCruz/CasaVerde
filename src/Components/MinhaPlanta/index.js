@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import palmeira from '../../img/palmeira.png'
 
 const MinhaPlantaContainer = styled.div`
     background-color: #ffffff;
@@ -45,7 +46,7 @@ const MinhaPlantaContainer = styled.div`
 const ImgComponent = styled.img`
     width: 585px;
     height: 100%;
-    background-image: url('https://s3-alpha-sig.figma.com/img/bcb7/46bb/38274f86c0294606e00a271da11d6a5a?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FUwdxgrM0tp7ZwnC4uvjI5IGnxpcFpbI3a0zGkbyeS9~p3FLCyJm3CcVDcCJmiJqHkIbCePQl3w7XKaSChYkHoK1r~wdEQbKS5R21dzoqQK0sOT0bupXwW~DY8d2i7TnoGML6IQCWW4~202hL8uJ~4~pYBBfbN-C4IbVEDnQ5uolI1m5Q5-cG6sgV26~fsiLuyBZVMfVUa-uPDTlUXNWEoCKJTH1qbd7H7z1PJxYBrmAkkOgUdbLhBU8n0gCmBw67SoMm-aRRjKsml-8AlolZ1FXcD72wA0v~xtvOEGnv2AK2kywstfwC23rMub~q~8dxinAunZi~ACe8v0-4zBsxw__');
+    background-image: url(${palmeira});
     background-size: cover;
 `
 function MinhaPlanta() {

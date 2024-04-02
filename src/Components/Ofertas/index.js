@@ -81,6 +81,7 @@ function Ofertas() {
             nome: 'Datura metel',
             valor: 20.00
         }
+        
     ]
     const [plantasPesquisadas, setPlantasPesquisadas] = useState([])
 
@@ -88,7 +89,7 @@ function Ofertas() {
         const plantasAPI = await getPlantas()
         setPlantasPesquisadas(plantasAPI)
     }
-    
+
     useEffect(() => {
         fetchPlantas()
     }, [])
