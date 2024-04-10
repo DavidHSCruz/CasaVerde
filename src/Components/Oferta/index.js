@@ -36,11 +36,11 @@ const OfertaConponent = styled.div`
         }
     }
 `
-function Oferta({ nome, valor, image, width, heigth, rotate, marginRight }) {
+function Oferta({ nome, valor, image, width, heigth, rotate, marginRight, id }) {
     return(
         <OfertaConponent>
             <img 
-                src={image} 
+                src={image}
                 alt={nome} 
                 width={width} 
                 height={heigth} 

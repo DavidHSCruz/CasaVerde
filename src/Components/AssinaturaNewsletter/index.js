@@ -97,17 +97,23 @@ const Botao = styled.button`
   }
 `
 function AssinaturaNewsletter() {
-  const [email, setEmail] = useState('')
+  
   const botao = useRef(null)
   const form = useRef(null)
   const input = useRef(null)
+  
+  
+  const [email, setEmail] = useState('')
 
-  useEffect(() => validarEmail(), [email])
+  useEffect(() => {
+    function validarEmail() {
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) botao.current.disabled = false
+      else botao.current.disabled = true
+    }
+    validarEmail()
+  }, [email])
 
-  function validarEmail() {
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) botao.current.disabled = false
-    else botao.current.disabled = true
-  }
+  
 
   function EnviarEmail(e) {
     e.preventDefault()
